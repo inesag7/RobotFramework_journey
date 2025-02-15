@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.0 on win32)" generated="2025-02-15T20:53:44.491844" rpa="false" schemaversion="5">
+<suite id="s1" name="Driven" source="C:\Users\ines2\Automate_Wikipedia\driven.robot">
+<test id="s1-t1" name="Search Wikipedia From CSV" line="11">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-02-15T20:53:44.796568" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ines2\Automate_Wikipedia\data2.csv"&gt;C:\Users\ines2\Automate_Wikipedia\data2.csv&lt;/a&gt;'.</msg>
+<msg time="2025-02-15T20:53:44.796913" level="INFO">${content} = topic
+Robot Framework
+Selenium
+Python
+</msg>
+<var>${content}</var>
+<arg>${CSV_FILE}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-02-15T20:53:44.796396" elapsed="0.000550"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-02-15T20:53:44.797309" level="INFO">@{lines} = [ topic | Robot Framework | Selenium | Python |  ]</msg>
+<var>@{lines}</var>
+<arg>${content}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-02-15T20:53:44.797140" elapsed="0.000194"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-02-15T20:53:44.797931" level="INFO">${columns} = ['topic']</msg>
+<var>${columns}</var>
+<arg>${line}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-02-15T20:53:44.797777" elapsed="0.000182"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-02-15T20:53:44.798199" level="INFO">${topic} = topic</msg>
+<var>${topic}</var>
+<arg>${columns}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-02-15T20:53:44.798059" elapsed="0.000167"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:53:44.798462" level="INFO">Opening browser 'chrome' to base url 'https://www.wikipedia.org/'.</msg>
+<arg>https://www.wikipedia.org/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-15T20:53:44.798335" elapsed="4.875950"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:53:49.675073" level="INFO">Typing text 'topic' into text field 'id=searchInput'.</msg>
+<arg>id=searchInput</arg>
+<arg>${topic}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:53:49.674542" elapsed="0.079704"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:53:49.754648" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:53:49.754441" elapsed="1.251206"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${topic}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-15T20:53:51.005893" elapsed="0.018591"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-15T20:53:51.024734" elapsed="2.108972"/>
+</kw>
+<var name="${line}">topic</var>
+<status status="PASS" start="2025-02-15T20:53:44.797683" elapsed="8.336116"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-02-15T20:53:53.134296" level="INFO">${columns} = ['Robot Framework']</msg>
+<var>${columns}</var>
+<arg>${line}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-02-15T20:53:53.134115" elapsed="0.000208"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-02-15T20:53:53.134563" level="INFO">${topic} = Robot Framework</msg>
+<var>${topic}</var>
+<arg>${columns}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-02-15T20:53:53.134423" elapsed="0.000163"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:53:53.134826" level="INFO">Opening browser 'chrome' to base url 'https://www.wikipedia.org/'.</msg>
+<arg>https://www.wikipedia.org/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-15T20:53:53.134700" elapsed="2.424595"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:53:55.559807" level="INFO">Typing text 'Robot Framework' into text field 'id=searchInput'.</msg>
+<arg>id=searchInput</arg>
+<arg>${topic}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:53:55.559527" elapsed="0.094629"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:53:55.654583" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:53:55.654373" elapsed="1.304383"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${topic}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-15T20:53:56.958967" elapsed="0.028825"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-15T20:53:56.987980" elapsed="2.096808"/>
+</kw>
+<var name="${line}">Robot Framework</var>
+<status status="PASS" start="2025-02-15T20:53:53.133990" elapsed="5.950905"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-02-15T20:53:59.085396" level="INFO">${columns} = ['Selenium']</msg>
+<var>${columns}</var>
+<arg>${line}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-02-15T20:53:59.085214" elapsed="0.000211"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-02-15T20:53:59.085655" level="INFO">${topic} = Selenium</msg>
+<var>${topic}</var>
+<arg>${columns}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-02-15T20:53:59.085526" elapsed="0.000158"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:53:59.085910" level="INFO">Opening browser 'chrome' to base url 'https://www.wikipedia.org/'.</msg>
+<arg>https://www.wikipedia.org/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-15T20:53:59.085798" elapsed="2.419163"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:54:01.505422" level="INFO">Typing text 'Selenium' into text field 'id=searchInput'.</msg>
+<arg>id=searchInput</arg>
+<arg>${topic}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:54:01.505173" elapsed="0.072776"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:54:01.578373" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:54:01.578148" elapsed="1.275276"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${topic}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-15T20:54:02.853693" elapsed="0.020533"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-15T20:54:02.874476" elapsed="2.114886"/>
+</kw>
+<var name="${line}">Selenium</var>
+<status status="PASS" start="2025-02-15T20:53:59.085090" elapsed="5.904557"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-02-15T20:54:04.990164" level="INFO">${columns} = ['Python']</msg>
+<var>${columns}</var>
+<arg>${line}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-02-15T20:54:04.989952" elapsed="0.000247"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-02-15T20:54:04.990471" level="INFO">${topic} = Python</msg>
+<var>${topic}</var>
+<arg>${columns}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-02-15T20:54:04.990285" elapsed="0.000210"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:54:04.990752" level="INFO">Opening browser 'chrome' to base url 'https://www.wikipedia.org/'.</msg>
+<arg>https://www.wikipedia.org/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-15T20:54:04.990620" elapsed="2.430767"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:54:07.421855" level="INFO">Typing text 'Python' into text field 'id=searchInput'.</msg>
+<arg>id=searchInput</arg>
+<arg>${topic}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:54:07.421583" elapsed="0.081372"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:54:07.503443" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:54:07.503209" elapsed="1.461617"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${topic}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-15T20:54:08.965100" elapsed="0.021242"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-15T20:54:08.986512" elapsed="2.098980"/>
+</kw>
+<var name="${line}">Python</var>
+<status status="PASS" start="2025-02-15T20:54:04.989830" elapsed="6.095762"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2025-02-15T20:54:11.086112" level="INFO">${columns} = ['']</msg>
+<var>${columns}</var>
+<arg>${line}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-02-15T20:54:11.085909" elapsed="0.000234"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-02-15T20:54:11.086452" level="INFO">${topic} = </msg>
+<var>${topic}</var>
+<arg>${columns}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-02-15T20:54:11.086289" elapsed="0.000188"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:54:11.086751" level="INFO">Opening browser 'chrome' to base url 'https://www.wikipedia.org/'.</msg>
+<arg>https://www.wikipedia.org/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-02-15T20:54:11.086613" elapsed="2.731947"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:54:13.819016" level="INFO">Typing text '' into text field 'id=searchInput'.</msg>
+<arg>id=searchInput</arg>
+<arg>${topic}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:54:13.818744" elapsed="0.061267"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-02-15T20:54:13.880412" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-02-15T20:54:13.880207" elapsed="1.082127"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${topic}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-02-15T20:54:14.962532" elapsed="0.138771"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-15T20:54:15.101473" elapsed="2.093126"/>
+</kw>
+<var name="${line}"/>
+<status status="PASS" start="2025-02-15T20:54:11.085778" elapsed="6.108916"/>
+</iter>
+<var>${line}</var>
+<value>@{lines}</value>
+<status status="PASS" start="2025-02-15T20:53:44.797479" elapsed="32.397274"/>
+</for>
+<status status="PASS" start="2025-02-15T20:53:44.795374" elapsed="32.399680"/>
+</test>
+<status status="PASS" start="2025-02-15T20:53:44.493228" elapsed="32.702403"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Driven" id="s1" pass="1" fail="0" skip="0">Driven</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
