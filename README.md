@@ -1,6 +1,8 @@
 
 🚀 RobotFramework Testing Journey
-Welcome to my RobotFramework Testing Journey! This repository documents my progress as I explore and enhance my skills in RobotFramework, Selenium, and automated testing.
+
+Welcome to my RobotFramework Testing Journey! 
+This repository documents my progress as I explore and enhance my skills in RobotFramework, Selenium, and automated testing.
 
 📌 Project Overview
 This repository contains test automation scripts written in RobotFramework to improve my testing knowledge. The test cases cover:
